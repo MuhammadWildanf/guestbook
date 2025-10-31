@@ -45,7 +45,7 @@ app.use(cors({ origin: true }));
 app.post('/submit-form', async (req, res) => {
   try {
     const db = admin.database()
-    const { name,  char, comment } = req.body;
+    const { name, char, comment } = req.body;
     const timestamp = admin.database.ServerValue.TIMESTAMP;
     const ref = db.ref('testguest');
     const newRef = await ref.push({ name, char, comment, timestamp })
@@ -60,10 +60,10 @@ app.post('/submit-form', async (req, res) => {
 app.post('/update-form', async (req, res) => {
   try {
     const db = admin.database()
-    const { key, name,  char, comment } = req.body;
+    const { key, name, char, comment } = req.body;
     const ref = db.ref(`/testguest/${key}`);
     const timestamp = admin.database.ServerValue.TIMESTAMP;
-    await ref.update({ name,  char, comment, timestamp });
+    await ref.update({ name, char, comment, timestamp });
     res.status(200).json({ msg: "Data Updated Successfully" });
   } catch (error) {
     console.error('Error updating data:', error);
