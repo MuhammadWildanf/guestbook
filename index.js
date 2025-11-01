@@ -143,3 +143,66 @@ app.put('/badwords/:oldWord', (req, res) => {
     res.status(500).json({ error: 'Gagal mengupdate kata terlarang' });
   }
 });
+
+
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dashboard.html"));
+});
+
+
+// Ambil semua data
+app.get("/entries", async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref("testguest");
+    const snapshot = await ref.once("value");
+    res.json(snapshot.val());
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Ambil data by key
+app.get("/entries/:key", async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref(`testguest/${req.params.key}`);
+    const snapshot = await ref.once("value");
+    res.json(snapshot.val());
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.put("/entries/:key", async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref(`testguest/${req.params.key}`);
+    await ref.update(req.body);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.delete("/entries/:key", async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref(`testguest/${req.params.key}`);
+    await ref.remove();
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.delete("/entries-all", async (req, res) => {
+  try {
+    const db = admin.database();
+    const ref = db.ref("testguest");
+    await ref.remove();
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});

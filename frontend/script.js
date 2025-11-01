@@ -16,14 +16,14 @@ document.getElementById("next").addEventListener("click", async (e) => {
     return;
   }
 
-  let badwords = [];
+  /* let badwords = [];
   try {
     const res = await fetch("/badwords");
     badwords = await res.json();
     console.log("Badwords:", badwords);
   } catch (error) {
     console.error("Gagal memuat data.json", error);
-  }
+  } */
 
   function normalizeRepeatedChars(text) {
     return text
