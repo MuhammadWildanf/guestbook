@@ -63,42 +63,26 @@ body {
   pointer-events: none;
 }
 
-/* ============== WINDOW BOX ============== */
 .grey-box {
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px #000;
-  width: 320px;
-  padding: 20px 16px 16px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.grey-box::before {
-  content: "Selamat Datang";
-  position: absolute;
-  top: -26px;
-  left: -2px;
-  background: linear-gradient(to bottom, #0000a8, #000084);
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
-  font-family: "MS Sans Serif", sans-serif;
-  border: 2px solid #000;
-  border-bottom: none;
-  width: calc(100% + 4px);
-  height: 24px;
-  line-height: 20px;
-  padding-left: 8px;
-}
-
-/* Ikon di kiri title bar */
-.grey-box::before {
-  background-image: url("icon-win95.png");
+  background-color: #c0c0c0;
+  background-image: url("form.png"); /* pakai gambar yang sudah ada teks 'Selamat Datang' */
   background-repeat: no-repeat;
-  background-size: 14px;
-  background-position: 6px center;
-  padding-left: 24px;
+  background-size: cover; /* biar gambar pas satu bingkai */
+  border: 2px solid #000;
+  box-shadow: 3px 3px #000, inset -2px -2px #808080, inset 2px 2px #fff;
+  width: 340px;
+  height: auto;
+  padding: 60px 24px 30px; /* beri ruang agar isi tidak tumpang tindih dengan bagian atas gambar */
+  margin: 40px auto;
+  position: relative;
+  border-radius: 2px;
+  background-position: top center; /* pastikan judul di atas tidak tertutup */
+}
+
+/* === Hilangkan title bar pseudo === */
+.grey-box::before,
+.grey-box::after {
+  content: none !important;
 }
 
 /* === Judul aplikasi di dalam window === */
