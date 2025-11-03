@@ -141,7 +141,7 @@ function showThankYouScreen(data) {
   const charImg = document.createElement('img');
   charImg.src = imageUrl;
   charImg.alt = char;
-  charImg.style.width = "400px";
+  charImg.style.width = "160px";
   charImg.style.display = "block";
   charImg.style.margin = "0 auto 20px";
 
