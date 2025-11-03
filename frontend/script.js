@@ -242,7 +242,8 @@ function showThankYouScreen(data) {
 const wrapper = document.querySelector(".carousel-wrapper");
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-const arrowBtns = document.querySelectorAll(".carousel-wrapper i");
+// const arrowBtns = document.querySelectorAll(".carousel-wrapper i");
+const arrowBtns = document.querySelectorAll(".carousel-wrapper .arrow-btn");
 const carouselChildrens = [...carousel.children];
 
 let char = 1;

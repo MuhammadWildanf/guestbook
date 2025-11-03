@@ -386,6 +386,30 @@ svg {
   position: relative;
 }
 
+.carousel-wrapper .arrow-btn {
+  width: 40px; /* sesuaikan ukuran dengan proporsi panah */
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 3;
+  image-rendering: pixelated; /* biar tetap gaya retro */
+}
+
+.carousel-wrapper .arrow-btn:first-of-type {
+  left: -50px;
+}
+
+.carousel-wrapper .arrow-btn:last-of-type {
+  right: -50px;
+}
+
+.carousel-wrapper .arrow-btn:active {
+  filter: brightness(80%);
+  transform: translateY(-50%) scale(0.95);
+}
+
 .carousel-wrapper i {
   background: #c0c0c0;
   border: 2px solid #000;
